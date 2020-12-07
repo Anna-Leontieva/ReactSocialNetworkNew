@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from './Header/header';
+import Header from './components/Header/header';
 import {BrowserRouter} from 'react-router-dom';
-import Footer from './Footer/footer';
-import Navbar from './navbar/Navbar';
-import Profile from './Profile/profile';
+import Footer from './components/Footer/footer';
+import Navbar from './components/navbar/Navbar';
+import Profile from './components/Profile/profile';
 function App() {
   return (
   <BrowserRouter>

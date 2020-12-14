@@ -10,6 +10,7 @@ function App() {
   return (
   <BrowserRouter>
   <div className="app-wrapper">
+    gggggg
     <Header/>
     <Navbar/>
     <Profile/>

@@ -3,18 +3,11 @@ nav{
     background-color: burlywood;
     padding: 20px;
     }
-    .item>a {
+.item>a {
       color: white;
       text-decoration: none;
     }
-    .item .activeLink{
-      color: gold;
-    }
-    .itemFriends h1{
-      color: rgb(7, 21, 103);
-      font-size: 30px;
-      padding-top: 20px;
-    }
-    .itemFriends{
-      color: white;
-    }
+.item a.activeLink{
+   color: darkgoldenrod;
+   text-decoration: none;
+ }

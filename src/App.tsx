@@ -2,18 +2,20 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/header';
-import {BrowserRouter} from 'react-router-dom';
-import Footer from './components/Footer/footer';
+import {BrowserRouter, Route} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/Profile/profile';
-function App() {
+import Dialogs from './components/Dialogs/Dialogs';
+function App(props:any) {
   return (
   <BrowserRouter>
   <div className="app-wrapper">
     <Header/>
     <Navbar/>
-    <Profile/>
-    <Footer/>
+    <div className="app-wrapper-content">
+      <Route path='/dialogs' component={Dialogs}/>
+      <Route path='/profile' component={Profile}/>
+    </div>
     </div>
   </BrowserRouter>
   );

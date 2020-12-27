@@ -3,6 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+export  type DialogsPropsType={
+dialogs:Array<DialogType>
+messages:Array<MessageType>
+}
+type DialogType={
+  id:number
+  name:string
+}
+type MessageType={
+  id:number
+  message:string
+}
+ type PostType={
+  id:number
+  message:string
+  likeCounts:number
+}
+export type PagePostType={
+  posts:Array<PostType>
+}
+
 let dialogs =[{id:1,name:"Anna"},
     {id:2,name:"Anna"},
     {id:3,name:"Vlad"},

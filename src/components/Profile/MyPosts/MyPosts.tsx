@@ -1,7 +1,8 @@
 import React from 'react';
+import { PagePostType } from '../../..';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-function MyPosts(props:any) {
+function MyPosts(props:PagePostType) {
     
     let postsElements=props.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
     return (

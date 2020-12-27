@@ -16,7 +16,7 @@ export type ProfilePageType={
     posts:Array<PostType>
 }
 export type DialogPageType={
-    dialogs:Array<DialogType>,
+    dialogs:Array<DialogType>
     messages:Array<MessageType>
 }
 type RootStateType={

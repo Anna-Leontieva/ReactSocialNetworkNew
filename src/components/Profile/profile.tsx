@@ -6,7 +6,7 @@ function Profile(props:any){
         <div className={classes.content}>
             <div><img src="https://handcraftguide.com/sites/default/files/styles/original___water/public/sketchingforkids1handcraftguide.com__0.jpg?itok=CiUYaUmE"></img></div>
             <div>ava+description</div>
-            <MyPosts posts={props.posts}/>
+            <MyPosts posts={props.state.posts}/>
         </div>
     );
 }

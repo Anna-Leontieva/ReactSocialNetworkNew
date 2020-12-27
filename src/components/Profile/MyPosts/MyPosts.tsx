@@ -1,8 +1,8 @@
 import React from 'react';
-import { PagePostType } from '../../..';
+import { ProfilePageType } from '../../../Redax/state';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-function MyPosts(props:PagePostType) {
+function MyPosts(props:ProfilePageType) {
     
     let postsElements=props.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
     return (

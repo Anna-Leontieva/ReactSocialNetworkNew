@@ -2,9 +2,9 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import { DialogsPropsType } from '../..';
+import { DialogPageType } from '../../Redax/state';
 
-function Dialogs(props:DialogsPropsType) {
+function Dialogs(props:DialogPageType) {
    
     let dialogsElements= props.dialogs.map(d=><DialogItem  name={d.name} id={d.id}/>)
     let messagesElements=props.messages.map(m=><Message message={m.message}/>)

@@ -16,25 +16,14 @@ function Message(props:MessageType){
     </div>
     );
 }
-type DialogItemsType={
-    name:string
-    id:number
-}
+
 type MessageType={
     message:string
 }
-function Dialogs(props: DialogItemsType) {
-   let dialogs =[{id:1,name:"Anna"},
-    {id:2,name:"Anna"},
-    {id:3,name:"Vlad"},
-    {id:4,name:"Lena"},
-    {id:5,name:"Pasha"}]
-    let  messages=[
-        {id:1,message:"Hello"},
-        {id:2,message:"How are you?"},
-        {id:3,message:"YOooo!!!"}]
-    let dialogsElements= dialogs.map(d=><DialogItem  name={d.name} id={d.id}/>)
-    let messagesElements=messages.map(m=><Message message={m.message}/>)
+function Dialogs(props:any) {
+   
+    let dialogsElements= props.dialogs.map(d=><DialogItem  name={d.name} id={d.id}/>)
+    let messagesElements=props.messages.map(m=><Message message={m.message}/>)
     return (<div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                  {dialogsElements} 

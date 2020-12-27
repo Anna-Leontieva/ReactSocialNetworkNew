@@ -24,19 +24,23 @@ type MessageType={
     message:string
 }
 function Dialogs(props: DialogItemsType) {
+   let dialogs =[{id:1,name:"Anna"},
+    {id:2,name:"Anna"},
+    {id:3,name:"Vlad"},
+    {id:4,name:"Lena"},
+    {id:5,name:"Pasha"}]
+    let  messages=[
+        {id:1,message:"Hello"},
+        {id:2,message:"How are you?"},
+        {id:3,message:"YOooo!!!"}]
+    let dialogsElements= dialogs.map(d=><DialogItem  name={d.name} id={d.id}/>)
+    let messagesElements=messages.map(m=><Message message={m.message}/>)
     return (<div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
-                    <DialogItem id="1" name="Anna"/>
-                    <DialogItem id="2" name="Vlad"/>
-                    <DialogItem id="3" name="Lena"/>
-                    <DialogItem id="4" name="Sveta"/>
-                    <DialogItem id="5" name="Pasha"/>
+                 {dialogsElements} 
             </div>
             <div className={classes.messages}>
-                <Message message="hello"/>
-                <Message message="How are you?"/>
-                <Message message="yooo!"/>
-                <Message message="good buy"/>
+               {messagesElements}
             </div>
     </div>);
 }

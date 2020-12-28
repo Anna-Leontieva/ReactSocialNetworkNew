@@ -1,10 +1,14 @@
+import { type } from 'os';
 import React from 'react';
 import { ProfilePageType } from '../../../Redax/state';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-function MyPosts(props:ProfilePageType) {
+type ProfilePagePropsType={
+    profilePage:ProfilePageType
+}
+function MyPosts(props:ProfilePagePropsType) {
     
-    let postsElements=props.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
+    let postsElements=props.profilePage.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
     return (
         <div>
             <div>

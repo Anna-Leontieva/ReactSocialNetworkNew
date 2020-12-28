@@ -19,7 +19,7 @@ export type DialogPageType={
     dialogs:Array<DialogType>
     messages:Array<MessageType>
 }
-type RootStateType={
+export type RootStateType={
     profilePage:ProfilePageType
     dialogsPage:DialogPageType
 }

@@ -7,7 +7,7 @@ type DialogType = {
     id: number
     name: string
 }
-type PostType = {
+export type PostType = {
     id: number
     message: string
     likeCounts: number

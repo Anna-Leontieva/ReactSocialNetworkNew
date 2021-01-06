@@ -9,6 +9,12 @@ type ProfilePagePropsType={
 function MyPosts(props:ProfilePagePropsType) {
     
     let postsElements=props.profilePage.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
+    
+    let newPostElement=React.createRef<HTMLTextAreaElement>(); //специальній єлемент Реф которій будет создавать ссілку на єлемент с jsx
+    let addPost =()=>{
+        alert(newPostElement.current && newPostElement.current.value)   //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
+     
+    }
     return (
         <div>
             <div>
@@ -16,8 +22,8 @@ function MyPosts(props:ProfilePagePropsType) {
             <div>New post</div>
             </div>
             <div>
-                <textarea></textarea>
-                <button>Add post</button>
+                <textarea ref={newPostElement}></textarea>     {/*привязываем ref*/}
+                 <button onClick={addPost}>Add post</button> {/*callback */}
             </div>
             <div className={classes.posts}>
           {postsElements}

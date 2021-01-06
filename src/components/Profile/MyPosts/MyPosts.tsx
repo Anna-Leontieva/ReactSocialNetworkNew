@@ -4,7 +4,8 @@ import { ProfilePageType } from '../../../Redax/state';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 type ProfilePagePropsType={
-    profilePage:ProfilePageType
+    profilePage:ProfilePageType,
+    addPostCallBack:(message:string)=>void
 }
 function MyPosts(props:ProfilePagePropsType) {
     
@@ -12,8 +13,8 @@ function MyPosts(props:ProfilePagePropsType) {
     
     let newPostElement=React.createRef<HTMLTextAreaElement>(); //специальній єлемент Реф которій будет создавать ссілку на єлемент с jsx
     let addPost =()=>{
-        alert(newPostElement.current && newPostElement.current.value)   //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
-     
+        if( newPostElement.current)
+      props.addPostCallBack( newPostElement.current.value)   //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
     }
     return (
         <div>

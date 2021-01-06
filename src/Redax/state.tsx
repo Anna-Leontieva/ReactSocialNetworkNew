@@ -40,5 +40,13 @@ let state:RootStateType = {
             { id: 3, message: "YOooo!!!" }]
     }
 }
+export let addPost=(postText:string)=>{
+    const newPost:PostType={
+        id:new Date().getTime(),
+        message:postText,
+        likeCounts:0
+    }
+    state.profilePage.posts.push(newPost);
+}
 
 export default state;

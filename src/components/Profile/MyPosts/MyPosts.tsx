@@ -11,10 +11,12 @@ function MyPosts(props:ProfilePagePropsType) {
     
     let postsElements=props.profilePage.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
     
-    let newPostElement=React.createRef<HTMLTextAreaElement>(); //специальній єлемент Реф которій будет создавать ссілку на єлемент с jsx
+    let newPostElement=React.createRef<HTMLTextAreaElement>(); //специальній єлемент Реф которій будет создавать ссылку на єлемент с jsx
     let addPost =()=>{
-        if( newPostElement.current)
-      props.addPostCallBack( newPostElement.current.value)   //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
+        if( newPostElement.current){
+      props.addPostCallBack( newPostElement.current.value)  //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
+      newPostElement.current.value='';
+    }
     }
     return (
         <div>

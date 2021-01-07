@@ -1,3 +1,5 @@
+import { renderEntireTree } from "../render"
+
 
 type MessageType = {
     id: number
@@ -47,6 +49,7 @@ export let addPost=(postText:string)=>{
         likeCounts:0
     }
     state.profilePage.posts.push(newPost);
+   renderEntireTree(state);       //добавляем посты с помощью renderEntireTree(state)
 }
 
 export default state;

@@ -47,14 +47,15 @@ let state:RootStateType = {
 export const addPost=(postText:string)=>{
     const newPost:PostType={
         id:new Date().getTime(),
-        message:postText,
+        message:state.profilePage.NewPostText='',
         likeCounts:0
     }
     state.profilePage.posts.push(newPost);
+    state.profilePage.NewPostText='';
    renderEntireTree(state);       //добавляем посты с помощью renderEntireTree(state)
 }
 export const  changeNewTextCallback=(newText:string)=>{
-   state.profilePage.NewPostText=newText;
+ state.profilePage.NewPostText=newText;
  renderEntireTree(state);
 }
 

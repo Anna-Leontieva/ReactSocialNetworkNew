@@ -15,8 +15,9 @@ function MyPosts(props:ProfilePagePropsType) {
     let addPost =()=>{
         if( newPostElement.current){
       props.addPostCallBack( newPostElement.current.value)  //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
-      newPostElement.current.value='';
-    }
+     newPostElement.current.value='';
+      }
+  
     }
     return (
         <div>

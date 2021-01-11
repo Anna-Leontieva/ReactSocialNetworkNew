@@ -16,6 +16,7 @@ export type PostType = {
 }
 export type ProfilePageType={
     posts:Array<PostType>
+    MessageForNewTextPost:string
 }
 export type DialogPageType={
     dialogs:Array<DialogType>
@@ -27,6 +28,7 @@ export type RootStateType={
 }
 let state:RootStateType = {
     profilePage: {
+        MessageForNewTextPost:"gggg",
         posts: [{ id: 1, message: "Hi,how are you?", likeCounts: 44 },
             { id: 1, message: "It my first post", likeCounts: 344 }
         ]

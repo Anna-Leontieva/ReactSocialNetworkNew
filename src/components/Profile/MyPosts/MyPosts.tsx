@@ -1,24 +1,25 @@
 import { type } from 'os';
-import React from 'react';
-import { ProfilePageType } from '../../../Redax/state';
+import React, { ChangeEvent } from 'react';
+import { isPropertySignature } from 'typescript';
+import { PostType, ProfilePageType } from '../../../Redax/state';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
+
 type ProfilePagePropsType={
     profilePage:ProfilePageType,
-    addPostCallBack:(message:string)=>void
+    addPostCallBack:(postText:string)=>void
+    changeNewTextCallback:(newText:string)=>void
 }
 function MyPosts(props:ProfilePagePropsType) {
     
-    let postsElements=props.profilePage.posts.map(m=><Post message={m.message} likeCounts={m.likeCounts}/>)
+    let postsElements=props.profilePage.posts.map(m=><Post key={m.id} message={m.message} likeCounts={m.likeCounts}/>)
     
-    let newPostElement=React.createRef<HTMLTextAreaElement>(); //специальній єлемент Реф которій будет создавать ссылку на єлемент с jsx
-    let addPost =()=>{
-        if( newPostElement.current){
-      props.addPostCallBack( newPostElement.current.value)  //такая же запись:if(newPostElement.current!==null)alert(newPostElement.current.value),,,,if(newPostElement.current)alert(newPostElement.current.value),,,,alert(newPostElement.current?.value)
-     newPostElement.current.value='';
-      }
-  
+   const addPost =()=>{
+      props.addPostCallBack(props.profilePage.NewPostText);
     }
+    const newTextChangeHandler=(e:ChangeEvent<HTMLTextAreaElement>)=>{
+        props.changeNewTextCallback(e.currentTarget.value);
+          }
     return (
         <div>
             <div>
@@ -26,8 +27,8 @@ function MyPosts(props:ProfilePagePropsType) {
             <div>New post</div>
             </div>
             <div>
-                <textarea ref={newPostElement}></textarea>     {/*привязываем ref*/}
-                 <button onClick={addPost}>Add post</button> {/*callback */}
+                <textarea value={props.profilePage.NewPostText} onChange={newTextChangeHandler}/>   {/*привязываем ref,value-контроль с помощью state */} 
+                 <button onClick={addPost} >Add post</button> {/*callback */}
             </div>
             <div className={classes.posts}>
           {postsElements}

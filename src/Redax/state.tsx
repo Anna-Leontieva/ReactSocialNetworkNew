@@ -16,7 +16,7 @@ export type PostType = {
 }
 export type ProfilePageType={
     posts:Array<PostType>
-    MessageForNewTextPost:string
+    NewPostText:string
 }
 export type DialogPageType={
     dialogs:Array<DialogType>
@@ -28,10 +28,10 @@ export type RootStateType={
 }
 let state:RootStateType = {
     profilePage: {
-        MessageForNewTextPost:"gggg",
+        NewPostText:'it-kamasutra.com',
         posts: [{ id: 1, message: "Hi,how are you?", likeCounts: 44 },
-            { id: 1, message: "It my first post", likeCounts: 344 }
-        ]
+            { id: 1, message: "It my first post", likeCounts: 344 }],
+    
     },
     dialogsPage: {
         dialogs: [{ id: 1, name: "Anna" },
@@ -44,7 +44,7 @@ let state:RootStateType = {
             { id: 3, message: "YOooo!!!" }]
     }
 }
-export let addPost=(postText:string)=>{
+export const addPost=(postText:string)=>{
     const newPost:PostType={
         id:new Date().getTime(),
         message:postText,
@@ -53,5 +53,10 @@ export let addPost=(postText:string)=>{
     state.profilePage.posts.push(newPost);
    renderEntireTree(state);       //добавляем посты с помощью renderEntireTree(state)
 }
+export const  changeNewTextCallback=(newText:string)=>{
+   state.profilePage.NewPostText=newText;
+ renderEntireTree(state);
+}
+
 
 export default state;

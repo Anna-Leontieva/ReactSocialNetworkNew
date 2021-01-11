@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state, { RootStateType } from './Redax/state';
 
-export const renderEntireTree=(state:RootStateType)=>{
+ const renderEntireTree=(state:RootStateType)=>{
     ReactDOM.render(
       <React.StrictMode>
         <App state={state}  />

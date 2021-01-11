@@ -1,6 +1,6 @@
-import { renderEntireTree } from "../render"
-
-
+let renderEntireTree = () =>{
+    console.log("State was changed")
+}
 type MessageType = {
     id: number
     message: string
@@ -52,11 +52,11 @@ export const addPost=(postText:string)=>{
     }
     state.profilePage.posts.push(newPost);
     state.profilePage.NewPostText='';
-   renderEntireTree(state);       //добавляем посты с помощью renderEntireTree(state)
+   renderEntireTree();       //добавляем посты с помощью renderEntireTree(state)
 }
 export const  changeNewTextCallback=(newText:string)=>{
  state.profilePage.NewPostText=newText;
- renderEntireTree(state);
+ renderEntireTree();
 }
 
 

@@ -4,17 +4,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, { RootStateType } from './Redax/state';
 
- const renderEntireTree=(state:RootStateType)=>{
+import store, {StoreType} from './Redax/state';
+const _onChange=(store:StoreType)=>{
     ReactDOM.render(
       <React.StrictMode>
-        <App state={state}  />
+        <App store={store}  />
       </React.StrictMode>,
       document.getElementById('root')
     );
     }
-renderEntireTree(state);
+_onChange(store);
+
 
 
 

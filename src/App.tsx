@@ -6,8 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/Profile/profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import state, { addPost } from './Redax/state';
-import {changeNewTextCallback} from './Redax/state';
+import store from './Redax/state';
 
 function App(props:any) {
   return (
@@ -17,12 +16,12 @@ function App(props:any) {
     <Navbar/>
     <div className="app-wrapper-content">
       <Route path='/profile' render={()=><Profile 
-      profilePage={props.state.profilePage}
-       addPostCallBack={addPost} 
-       changeNewTextCallback={changeNewTextCallback}
+      profilePage={props.store.profilePage}
+       addPostCallBack={store.addPost.bind(store)} 
+       changeNewTextCallback={store.changeNewTextCallback.bind(store)}
       
       />}/>
-      <Route path='/dialogs' render={()=><Dialogs dialogsPage={props.state.dialogsPage} />}/>
+      <Route path='/dialogs' render={()=><Dialogs dialogsPage={props.store.dialogsPage} />}/>
     </div>
     </div>
   </BrowserRouter>

@@ -55,15 +55,7 @@ export type StoreType = {
     getState:()=>RootStateType
     dispatch:(action:ActionsTypes)=>void
 }
-type AddPostActionType={
-    type:"ADD-POST"
-    postText:string
-}
-type ChangeNewTextType={
-    type:"CHANGE-NEW-TEXT"
-    newText:string
-}
-export type ActionsTypes=AddPostActionType| ChangeNewTextType
+
 const store:StoreType={
      _state:{
         profilePage: {
@@ -121,6 +113,20 @@ const store:StoreType={
     this._onChange();
    }
 }
+}
+
+export type ActionsTypes=ReturnType<typeof addPostAC>| ReturnType<typeof changeNewTextAC>
+export const addPostAC=(postText:string)=>{
+    return{
+        type:'ADD-POST',
+        postText:postText
+    } as const
+} 
+export const changeNewTextAC=(newText:string)=>{
+    return{
+        type:'CHANGE-NEW-TEXT',
+        newText:newText
+    } as const
 }
 
 export default store;

@@ -6,7 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/Profile/profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import store from './Redax/state';
+import store, { StoreType } from './Redax/state';
 
 function App(props:any) {
   return (

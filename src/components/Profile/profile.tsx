@@ -1,12 +1,12 @@
 import React from 'react';
-import store, {PostType, ProfilePageType, StoreType} from '../../Redax/state';
+import store, {ActionsTypes, PostType, ProfilePageType, StoreType} from '../../Redax/state';
 import MyPosts from './MyPosts/MyPosts';
 import classes from './profile.module.css';
 type ProfilePropsType={
     profilePage:ProfilePageType
     addPostCallBack:(postText:string)=>void
     changeNewTextCallback:(newText:string)=>void
-    dispatch:(action:StoreType)=>void
+    dispatch:(action:ActionsTypes)=>void
 }
 function Profile(props: ProfilePropsType){
     

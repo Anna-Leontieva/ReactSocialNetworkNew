@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import store, {StoreType} from './Redax/state';
-const _onChange=(store:StoreType)=>{
+const _callSubscriber=()=>{
     ReactDOM.render(
       <React.StrictMode>
         <App store={store}  />
@@ -14,8 +14,9 @@ const _onChange=(store:StoreType)=>{
       document.getElementById('root')
     );
     }
-_onChange(store);
 
+    _callSubscriber();
+    store.subscribe(_callSubscriber);
 
 
 

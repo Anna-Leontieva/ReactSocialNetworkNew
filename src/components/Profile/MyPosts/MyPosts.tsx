@@ -1,7 +1,7 @@
 import { type } from 'os';
 import React, { ChangeEvent } from 'react';
 import { isPropertySignature } from 'typescript';
-import { PostType, ProfilePageType } from '../../../Redax/state';
+import { StoreType, ProfilePageType } from '../../../Redax/state';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 
@@ -9,13 +9,15 @@ type ProfilePagePropsType={
     profilePage:ProfilePageType,
     addPostCallBack:(postText:string)=>void
     changeNewTextCallback:(newText:string)=>void
+    dispatch:(action:StoreType)=>void
 }
 function MyPosts(props:ProfilePagePropsType) {
     
     let postsElements=props.profilePage.posts.map(m=><Post key={m.id} message={m.message} likeCounts={m.likeCounts}/>)
     
    const addPost =()=>{
-      props.addPostCallBack(props.profilePage.NewPostText);
+     // props.addPostCallBack(props.profilePage.NewPostText);
+  
     }
     const newTextChangeHandler=(e:ChangeEvent<HTMLTextAreaElement>)=>{
         props.changeNewTextCallback(e.currentTarget.value);

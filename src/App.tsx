@@ -17,6 +17,7 @@ function App(props:any) {
     <div className="app-wrapper-content">
       <Route path='/profile' render={()=><Profile 
       profilePage={props.store.profilePage}
+      dispatch={store.dispatch.bind(store)}
        addPostCallBack={store.addPost.bind(store)} 
        changeNewTextCallback={store.changeNewTextCallback.bind(store)}
       

@@ -53,8 +53,17 @@ export type StoreType = {
     _onChange:()=>void
     subscribe:(observer:()=>void)=>void
     getState:()=>RootStateType
-    dispatch:(action:any)=>void
+    dispatch:(action:ActionsTypes)=>void
 }
+type AddPostActionType={
+    type:"ADD-POST"
+    postText:string
+}
+type ChangeNewTextType={
+    type:"CHANGE-NEW-TEXT"
+    newText:string
+}
+export type ActionsTypes=AddPostActionType| ChangeNewTextType
 const store:StoreType={
      _state:{
         profilePage: {
@@ -101,7 +110,7 @@ const store:StoreType={
        if(action.type==="ADD-POST"){
     const newPost:PostType={
         id:new Date().getTime(),
-        message:action.state.profilePage.NewPostText='',
+        message:action.postText,
         likeCounts:0
     }
     this._state.profilePage.posts.push(newPost);

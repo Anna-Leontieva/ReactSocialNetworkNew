@@ -32,8 +32,6 @@ const UPDATE_NEW_MESSAGE_BODY='UPDATE-NEW-MESSAGE-BODY';
 
 export type StoreType = {
     _state: RootStateType
-    changeNewTextCallback: (newText: string) => void
-    addPost: (postText: string) => void
     _callSubscriber: () => void
     getState: () => RootStateType
     subscribe: (observer: () => void) => void
@@ -66,20 +64,6 @@ const store: StoreType = {
     },
     _callSubscriber() {
         console.log("state changed");
-    },
-    addPost(postText: string) {
-        const newPost: PostType = {
-            id: new Date().getTime(),
-            message: this._state.profilePage.NewPostText,
-            likeCounts: 0
-        }
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.NewPostText = '';
-        this._callSubscriber();    //добавляем посты с помощью renderEntireTree(state)
-    },
-    changeNewTextCallback(newText: string) {
-        this._state.profilePage.NewPostText = newText;
-        this._callSubscriber();
     },
     subscribe(observer) {
         this._callSubscriber = observer;

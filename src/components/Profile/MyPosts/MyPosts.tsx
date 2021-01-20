@@ -1,14 +1,12 @@
 import { type } from 'os';
 import React, { ChangeEvent } from 'react';
 import { isPropertySignature } from 'typescript';
-import { StoreType, ProfilePageType, ActionsTypes, addPostAC } from '../../../Redax/state';
+import { StoreType, ProfilePageType, ActionsTypes, addPostAC, changeNewTextAC } from '../../../Redax/state';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 
 type ProfilePagePropsType = {
     profilePage: ProfilePageType,
-    addPostCallBack: (postText: string) => void
-    changeNewTextCallback: (newText: string) => void
     dispatch: (action: ActionsTypes) => void
 }
 function MyPosts(props: ProfilePagePropsType) {
@@ -21,7 +19,7 @@ function MyPosts(props: ProfilePagePropsType) {
     } 
 
     const newTextChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.changeNewTextCallback(e.currentTarget.value);
+        props.dispatch(changeNewTextAC(e.currentTarget.value));
     }
 
     return (

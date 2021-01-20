@@ -21,8 +21,6 @@ function App(props: any) {
               <Profile
                 profilePage={props.store.getState().profilePage}
                 dispatch={store.dispatch.bind(props.store)}
-                addPostCallBack={store.addPost.bind(props.store)}
-                changeNewTextCallback={store.changeNewTextCallback.bind(props.store)}
               />} />
           <Route path='/dialogs' render={() => <Dialogs 
           dialogsPage={props.store.getState().dialogsPage}

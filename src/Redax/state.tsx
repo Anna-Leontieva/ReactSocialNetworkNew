@@ -99,13 +99,17 @@ const store: StoreType = {
             this._state.profilePage.NewPostText = action.newText;
             this._callSubscriber();
         } else if(action.type ==="UPDATE-NEW-MESSAGE-BODY"){
-            this._state.newMessageBody=action.newMessage;
+            this._state.newMessageBody=action.body;
+            this._callSubscriber();
+        } else if(action.type==="SEND-MESSAGE"){
+            let body = this._state.newMessageBody = '';
+            this._state.dialogsPage.messages.push({id:6,message:body});
             this._callSubscriber();
         }
     }
 }
 
-export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC> | ReturnType<typeof updateNewMessageBodyAC>
+export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC> | ReturnType<typeof updateNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 export const addPostAC = (postText: string) => {
     return {
         type: 'ADD-POST',
@@ -118,9 +122,15 @@ export const changeNewTextAC = (newText: string) => {
         newText: newText
     } as const
 }
-export const updateNewMessageBodyAC=(newMessage:string)=>{
+export const updateNewMessageBodyAC=(body:string)=>{
     return{
         type:'UPDATE-NEW-MESSAGE-BODY',
+        body:body
+    } as const
+}
+export const sendMessageAC=(newMessage:string)=>{
+    return{
+        type:'SEND-MESSAGE',
         newMessage:newMessage
     } as const
 }

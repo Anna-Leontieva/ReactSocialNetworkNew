@@ -25,7 +25,9 @@ function App(props: any) {
                 changeNewTextCallback={store.changeNewTextCallback.bind(props.store)}
               />} />
           <Route path='/dialogs' render={() => <Dialogs 
-          dialogsPage={props.store.getState().dialogsPage} />} />
+          dialogsPage={props.store.getState().dialogsPage}
+          dispatch={store.dispatch.bind(props.store)}
+          newMessageBody={store._state.newMessageBody} />} />
         </div>
       </div>
     </BrowserRouter>

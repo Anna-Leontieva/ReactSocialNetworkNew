@@ -18,7 +18,7 @@ function MyPosts(props: ProfilePagePropsType) {
     const addPost = () => {
         //props.addPostCallBack(props.profilePage.NewPostText);
         props.dispatch(addPostAC(props.profilePage.NewPostText));
-    }
+    } 
 
     const newTextChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         props.changeNewTextCallback(e.currentTarget.value);

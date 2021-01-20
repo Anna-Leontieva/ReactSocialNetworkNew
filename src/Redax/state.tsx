@@ -24,26 +24,10 @@ export type DialogPageType = {
 export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogPageType
-}
-let state: RootStateType = {
-    profilePage: {
-        NewPostText: 'it-kamasutra.com',
-        posts: [{ id: 1, message: "Hi,how are you?", likeCounts: 44 },
-        { id: 1, message: "It my first post", likeCounts: 344 }],
-
-    },
-    dialogsPage: {
-        dialogs: [{ id: 1, name: "Anna" },
-        { id: 2, name: "Anna" },
-        { id: 3, name: "Vlad" },
-        { id: 4, name: "Lena" },
-        { id: 5, name: "Pasha" }],
-        messages: [{ id: 1, message: "Hello" },
-        { id: 2, message: "How are you?" },
-        { id: 3, message: "YOooo!!!" }]
-    }
+    newMessageBody:string
 }
 
+const UPDATE_NEW_MESSAGE_BODY='UPDATE-NEW-MESSAGE-BODY';
 
 
 export type StoreType = {
@@ -73,7 +57,9 @@ const store: StoreType = {
             messages: [{ id: 1, message: "Hello" },
             { id: 2, message: "How are you?" },
             { id: 3, message: "YOooo!!!" }]
-        }
+        },
+        newMessageBody:""
+        
     },
     getState() {
         return this._state;
@@ -112,11 +98,14 @@ const store: StoreType = {
         } else if (action.type === "CHANGE-NEW-TEXT") {
             this._state.profilePage.NewPostText = action.newText;
             this._callSubscriber();
+        } else if(action.type ==="UPDATE-NEW-MESSAGE-BODY"){
+            this._state.newMessageBody=action.newMessage;
+            this._callSubscriber();
         }
     }
 }
 
-export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
+export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC> | ReturnType<typeof updateNewMessageBodyAC>
 export const addPostAC = (postText: string) => {
     return {
         type: 'ADD-POST',
@@ -127,6 +116,12 @@ export const changeNewTextAC = (newText: string) => {
     return {
         type: 'CHANGE-NEW-TEXT',
         newText: newText
+    } as const
+}
+export const updateNewMessageBodyAC=(newMessage:string)=>{
+    return{
+        type:'UPDATE-NEW-MESSAGE-BODY',
+        newMessage:newMessage
     } as const
 }
 

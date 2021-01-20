@@ -19,6 +19,7 @@ function Dialogs(props: DialogPropsType) {
 
     
     let addMessage=()=>{
+  
       props.dispatch(sendMessageAC(props.newMessageBody));
     }
     const onNewMessageChange=(e:ChangeEvent<HTMLTextAreaElement>)=>{

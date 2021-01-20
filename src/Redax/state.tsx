@@ -103,7 +103,7 @@ const store: StoreType = {
             this._callSubscriber();
         } else if(action.type==="SEND-MESSAGE"){
             let body = this._state.newMessageBody = '';
-            this._state.dialogsPage.messages.push({id:6,message:body});
+            this._state.dialogsPage.messages.push({id:new Date().getTime(),message:action.newMessage});
             this._callSubscriber();
         }
     }

@@ -31,7 +31,7 @@ function MyPosts(props: ProfilePagePropsType) {
             <div>New post</div>
             </div>
             <div>
-                <textarea value={props.profilePage.NewPostText} onChange={newTextChangeHandler} />   {/*привязываем ref,value-контроль с помощью state */}
+                <textarea value={props.profilePage.NewPostText} onChange={newTextChangeHandler} />   
                 <button onClick={addPost} >Add post</button> {/*callback */}
             </div>
             <div className={classes.posts}>

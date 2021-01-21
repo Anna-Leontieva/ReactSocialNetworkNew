@@ -27,9 +27,6 @@ export type RootStateType = {
     newMessageBody:string
 }
 
-const UPDATE_NEW_MESSAGE_BODY='UPDATE-NEW-MESSAGE-BODY';
-
-
 export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void

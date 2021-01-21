@@ -1,8 +1,18 @@
-import { ActionsTypes, DialogPageType, } from "./state";
-export type  StateType={ newMessageBody: string 
-    messages: { id: number; message: string; }[]; }
-
-export const dialogReducer=(state:StateType ,action:ActionsTypes)=>{
+import { DialogPageType, } from "./state";
+export const updateNewMessageBodyAC=(body:string)=>{
+    return{
+        type:'UPDATE-NEW-MESSAGE-BODY',
+        body:body
+    } as const
+}
+export const sendMessageAC=(newMessage:string)=>{
+    return{
+        type:'SEND-MESSAGE',
+        newMessage:newMessage
+    } as const
+}
+export type ActionsDialogsPageType=ReturnType<typeof updateNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
+export const dialogReducer=(state:DialogPageType ,action:ActionsDialogsPageType)=>{
     if(action.type ==="UPDATE-NEW-MESSAGE-BODY"){
         state.newMessageBody=action.body;
     } else if(action.type==="SEND-MESSAGE"){

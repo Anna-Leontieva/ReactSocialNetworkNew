@@ -1,6 +1,5 @@
 import { ActionsTypes, DialogPageType, } from "./state";
-import {addPostAC,changeNewTextAC} from "./state";
-type  StateType={ newMessageBody: string 
+export type  StateType={ newMessageBody: string 
     messages: { id: number; message: string; }[]; }
 
 export const dialogReducer=(state:StateType ,action:ActionsTypes)=>{

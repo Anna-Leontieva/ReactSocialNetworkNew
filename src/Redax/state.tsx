@@ -1,4 +1,6 @@
 import { type } from "os"
+import dialogReducer from "./dialogReducer"
+import profileReducer from "./profileReducer"
 
 type MessageType = {
     id: number
@@ -67,6 +69,9 @@ const store: StoreType = {
     },
 
     dispatch(action) {
+        this._state.profilePage=profileReducer(this._state.profilePage,action);
+       
+
         if (action.type === "ADD-POST") {
             const newPost: PostType = {
                 id: new Date().getTime(),

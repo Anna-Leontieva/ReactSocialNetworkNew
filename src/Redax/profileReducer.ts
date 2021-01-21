@@ -1,6 +1,4 @@
 import { ActionsTypes, PostType, ProfilePageType } from "./state";
-import {addPostAC,changeNewTextAC} from "./state";
-
  const profileReducer=(state:ProfilePageType,action:ActionsTypes)=>{
     if (action.type === "ADD-POST") {
         const newPost: PostType = {

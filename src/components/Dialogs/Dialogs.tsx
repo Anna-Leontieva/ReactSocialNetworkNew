@@ -2,13 +2,12 @@ import React, { ChangeEvent } from 'react';
 import classes from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import { ActionsTypes, DialogPageType, sendMessageAC } from '../../Redax/state';
-import {updateNewMessageBodyAC} from '../../Redax/state';
+import { DialogPageType} from '../../Redax/state';
+import {updateNewMessageBodyAC,sendMessageAC,ActionsDialogsPageType} from './../../Redax/dialogReducer'
 
 type DialogPropsType = {
     dialogsPage: DialogPageType
-    dispatch:(action:ActionsTypes)=>void
-    newMessageBody:string
+    dispatch:(action:ActionsDialogsPageType)=>void
 }
 
 
@@ -20,7 +19,7 @@ function Dialogs(props: DialogPropsType) {
     
     let addMessage=()=>{
   
-      props.dispatch(sendMessageAC(props.newMessageBody));
+      props.dispatch(sendMessageAC(props.dialogsPage.newMessageBody));
     }
     const onNewMessageChange=(e:ChangeEvent<HTMLTextAreaElement>)=>{
         let body= e.currentTarget.value;
@@ -35,7 +34,7 @@ function Dialogs(props: DialogPropsType) {
                {messagesElements}
             </div>
             <div>
-                <textarea value={props.newMessageBody}
+                <textarea value={props.dialogsPage.newMessageBody}
                 placeholder={'Enter new message'}
                 onChange={onNewMessageChange}
                 ></textarea>

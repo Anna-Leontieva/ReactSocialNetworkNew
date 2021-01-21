@@ -37,9 +37,10 @@ export type StoreType = {
     _callSubscriber: () => void
     getState: () => RootStateType
     subscribe: (observer: () => void) => void
-    dispatch: (action: ActionsTypes) => void
+    dispatch: (action:ActionsProfilePageType & ActionsDialogsPageType) => void
+    
 }
-type ActionsTypes= ActionsProfilePageType & ActionsDialogsPageType
+
 const store: StoreType = {
     _state: {
         profilePage: {

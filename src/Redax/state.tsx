@@ -37,13 +37,12 @@ export type StoreType = {
     _callSubscriber: () => void
     getState: () => RootStateType
     subscribe: (observer: () => void) => void
-    dispatch: (action:ActionsProfilePageType & ActionsDialogsPageType) => void
-    
+    dispatch: (action: ActionsTypes) => void
 }
-
+type ActionsTypes= ActionsProfilePageType & ActionsDialogsPageType
 const store: StoreType = {
     _state: {
-        profilePage: {
+        profilePage: {   
             NewPostText: 'it-kamasutra.com',
             posts: [{ id: 1, message: "Hi,how are you?", likeCounts: 44 },
             { id: 1, message: "It my first post", likeCounts: 344 }],

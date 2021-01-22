@@ -1,4 +1,4 @@
-import { PostType, ProfilePageType} from "./state";
+import { PostType, ProfilePageType } from "./state";
 export const addPostAC = (postText: string) => {
     return {
         type: 'ADD-POST',
@@ -11,19 +11,24 @@ export const changeNewTextAC = (newText: string) => {
         newText: newText
     } as const
 }
-export type ActionsProfilePageType=ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
- const profileReducer=(state:ProfilePageType,action:ActionsProfilePageType)=>{
-    if (action.type === "ADD-POST") {
-        const newPost: PostType = {
-            id: new Date().getTime(),
-            message: action.postText,
-            likeCounts: 0
-        }
-      state.posts.push(newPost);
-      state.NewPostText = '';
-    } else if (action.type === "CHANGE-NEW-TEXT") {
-      state.NewPostText = action.newText;
-    } 
-    return state;
+export type ActionsProfilePageType = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
+const profileReducer = (state: ProfilePageType, action: ActionsProfilePageType) => {
+    switch (action.type) {
+        case "ADD-POST":
+            const newPost: PostType = {
+                id: new Date().getTime(),
+                message: action.postText,
+                likeCounts: 0
+            };
+            state.posts.push(newPost);
+            state.NewPostText = '';
+            return state;
+        case "CHANGE-NEW-TEXT":
+            state.NewPostText = action.newText;
+            return state;
+        default:
+            return state;
+    }
 }
+
 export default profileReducer;

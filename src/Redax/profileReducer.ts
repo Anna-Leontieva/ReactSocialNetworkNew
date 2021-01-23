@@ -1,4 +1,10 @@
 import { PostType, ProfilePageType } from "./store";
+
+let initialState={
+    NewPostText: 'it-kamasutra.com',
+            posts: [{ id: 1, message: "Hi,how are you?", likeCounts: 44 },
+            { id: 1, message: "It my first post", likeCounts: 344 }],
+}
 export const addPostAC = (postText: string) => {
     return {
         type: 'ADD-POST',
@@ -12,7 +18,7 @@ export const changeNewTextAC = (newText: string) => {
     } as const
 }
 export type ActionsProfilePageType = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
-const profileReducer = (state: ProfilePageType, action: ActionsProfilePageType) => {
+const profileReducer = (state: ProfilePageType=initialState, action: ActionsProfilePageType) => {
     switch (action.type) {
         case "ADD-POST":
             const newPost: PostType = {

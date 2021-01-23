@@ -1,5 +1,5 @@
 import React from 'react';
-import store, { PostType, ProfilePageType, StoreType} from '../../Redax/state';
+import store, { PostType, ProfilePageType, StoreType} from '../../Redax/store';
 import {ActionsProfilePageType} from './../../Redax/profileReducer'
 import MyPosts from './MyPosts/MyPosts';
 import classes from './profile.module.css';

@@ -1,4 +1,4 @@
-import { DialogPageType, } from "./state";
+import { DialogPageType} from "./store";
 export const updateNewMessageBodyAC = (body: string) => {
     return {
         type: 'UPDATE-NEW-MESSAGE-BODY',

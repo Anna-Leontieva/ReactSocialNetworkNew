@@ -1,7 +1,7 @@
 import { type } from 'os';
 import React, { ChangeEvent } from 'react';
 import { isPropertySignature } from 'typescript';
-import { StoreType, ProfilePageType} from '../../../Redax/state';
+import { StoreType, ProfilePageType} from '../../../Redax/store';
 import {addPostAC, changeNewTextAC,ActionsProfilePageType } from './../../../Redax/profileReducer'
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';

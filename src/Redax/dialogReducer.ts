@@ -10,20 +10,24 @@ let initialState={
     { id: 2, message: "How are you?" },
     { id: 3, message: "YOooo!!!" }]
 }
-export const updateNewMessageBodyAC = (body: string) => {
+export type  updateNewMessageBodyACType={
+    type:string
+    body:string
+}
+export const updateNewMessageBodyAC = (body: string): updateNewMessageBodyACType => {
     return {
         type: 'UPDATE-NEW-MESSAGE-BODY',
         body: body
     } as const
 }
-export const sendMessageAC = (newMessage: string) => {
+export const sendMessageAC = (newMessage: string): any => {
     return {
         type: 'SEND-MESSAGE',
         newMessage: newMessage
     } as const
 }
 export type ActionsDialogsPageType = ReturnType<typeof updateNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
-export const dialogReducer = (state: DialogPageType=initialState, action: ActionsDialogsPageType) => {
+export const dialogReducer = (state: DialogPageType=initialState, action: ActionsDialogsPageType):DialogPageType => {
     switch (action.type) {
         case "UPDATE-NEW-MESSAGE-BODY":
             state.newMessageBody = action.body;

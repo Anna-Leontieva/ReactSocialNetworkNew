@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import store, {StoreType} from './Redax/store';
+import store from './Redax/redaxStore';
 const _callSubscriber=()=>{
     ReactDOM.render(
       <React.StrictMode>

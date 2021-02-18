@@ -6,7 +6,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/Profile/profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import store, { StoreType } from './Redax/store';
+import  { StoreType } from './Redax/store';
+import store from './Redax/redaxStore'
 
 function App(props: any) {
 

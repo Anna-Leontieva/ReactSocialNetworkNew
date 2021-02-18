@@ -5,7 +5,7 @@ import { ActionsTypes } from "./store";
 
 let reducers= combineReducers({
     profilePage:profileReducer,
-    dialogPage:dialogReducer
+    dialogsPage:dialogReducer
 });
 
 let store = createStore(reducers);

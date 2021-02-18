@@ -12,6 +12,7 @@ type DialogPropsType = {
 
 
 function Dialogs(props: DialogPropsType) {
+   debugger;
    
     let dialogsElements= props.dialogsPage.dialogs.map(d=><DialogItem  name={d.name} id={d.id}/>)
     let messagesElements=props.dialogsPage.messages.map(m=><Message message={m.message}/>)

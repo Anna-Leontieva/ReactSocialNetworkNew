@@ -6,10 +6,17 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/Profile/profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import  { StoreType } from './Redax/store';
+import { StoreType } from './Redax/store';
 import store from './Redax/redaxStore'
 
 function App(props: any) {
+  const getDialog = function () {
+    debugger
+    return (<Dialogs
+            dialogsPage={props.store.getState().dialogsPage}
+            dispatch={store.dispatch.bind(props.store)}
+          />)
+  }
 
   return (
     <BrowserRouter>
@@ -23,10 +30,7 @@ function App(props: any) {
                 profilePage={props.store.getState().profilePage}
                 dispatch={store.dispatch.bind(props.store)}
               />} />
-          <Route path='/dialogs' render={() => <Dialogs 
-          dialogsPage={props.store.getState().dialogsPage}
-          dispatch={store.dispatch.bind(props.store)}
-         />} />
+          <Route path='/dialogs' render={getDialog} />
         </div>
       </div>
     </BrowserRouter>

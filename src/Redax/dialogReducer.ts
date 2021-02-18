@@ -14,20 +14,22 @@ export type  updateNewMessageBodyACType={
     type:string
     body:string
 }
+
 export const updateNewMessageBodyAC = (body: string): updateNewMessageBodyACType => {
     return {
         type: 'UPDATE-NEW-MESSAGE-BODY',
         body: body
     } as const
 }
-export const sendMessageAC = (newMessage: string): any => {
+export const sendMessageAC = (newMessage: string):any => {
     return {
         type: 'SEND-MESSAGE',
         newMessage: newMessage
     } as const
 }
 export type ActionsDialogsPageType = ReturnType<typeof updateNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
-export const dialogReducer = (state: DialogPageType=initialState, action: ActionsDialogsPageType):DialogPageType => {
+
+const dialogReducer = (state: DialogPageType=initialState, action: ActionsDialogsPageType):DialogPageType => {
     switch (action.type) {
         case "UPDATE-NEW-MESSAGE-BODY":
             state.newMessageBody = action.body;
